@@ -1,15 +1,15 @@
 /*
- * timer.shell.js
+ * timer.device.js
  * Shell module for timer
 */
-timer.shell = (function() {
+timer.device = (function() {
     //-------- BEGIN MODULE SCOPE VARIABLES ----------
     var 
         configMap = {
-            main_html : String() +
-            '<div class="timer-shell-main">' +
-                '<div class="timer-device"></div>'  +
-            '</div>',
+            main_html : String()
+            + '<div class="timer-device">'
+                + '<div class="timer-device-screen"></div>'
+            + '</div>'
         },
         stateMap = { $container: null },
         jqueryMap = {},

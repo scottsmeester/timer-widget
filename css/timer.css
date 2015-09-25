@@ -33,15 +33,8 @@
 
 /** Begin timer nametimerce selectors */
   #timer {
-    position : absolute;
-    top      : 50px;
-    left     : 50px;
-    /*bottom   : 8px;
-    right    : 8px;*/
-
-    min-height : 159px;
-    min-width  : 319px;
-    overflow   : hidden;
+    width: 100%;
+    z-index: 7;
   }
 /** End timer namespace selectors */
 

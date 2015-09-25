@@ -5,7 +5,7 @@
 
 var timer = (function() {
     var initModule = function($container) {
-        timer.shell.initModule($container);
+        timer.device.initModule($container);
     }
 
     return {initModule:initModule};

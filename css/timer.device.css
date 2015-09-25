@@ -1,0 +1,11 @@
+.timer-device {
+  background-image: url("../images/device.png");
+  position: relative;
+  left: 40px;
+  top: 74px;
+  width: 319px;
+  height: 159px;
+  z-index: 3;
+  margin-left: auto;
+  margin-right: auto;
+}
