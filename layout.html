@@ -18,6 +18,7 @@
       z-index: 3;
       margin-left: auto;
       margin-right: auto;
+      z-index: 1;
     }
     .timer-device-screen {
       background-image: url("images/screen.png");
@@ -26,7 +27,14 @@
       top: 31px;
       width: 191px;
       height: 64px;
-      z-index: 9;
+    }
+    .timer-device-screen-clock {
+      background-image: url("images/clock.png");
+      position: absolute;
+      left: -1px;
+      top: 4px;
+      width: 57px;
+      height: 57px;
     }
     .timer-device-toggle {
       font-size: 8px;
@@ -41,12 +49,21 @@
       left: 30.844px;
       top: 111px;
     }
-    .timer-device-toggle-btn {
+    .timer-device-toggle-btnSlider {
       background-image: url("images/toggle.png");
       position: absolute;
       left: 52px;
       top: 109px;
       width: 29px;
+      height: 16px;
+      cursor: pointer;
+    }
+    .timer-device-toggle-btn {
+      background-image: url("images/slider-button.png");
+      position: absolute;
+      left: 1px;
+      top: 1px;
+      width: 16px;
       height: 16px;
       cursor: pointer;
     }
@@ -63,6 +80,10 @@
       width: 53px;
       height: 28px;
       cursor: pointer;
+      z-index: -1;
+    }
+    .timer-device-power.on {
+      background-image: url("images/power-btn-on.png");
     }
     .timer-device-power-txt {
       font-size: 8px;
@@ -102,16 +123,71 @@
       height: 22px;
       cursor: pointer;
     }
+    .timer-device-slider {
+      background-image: url("images/slider.png");
+      position: absolute;
+      left: 120px;
+      top: 111px;
+      width: 167px;
+      height: 16px;
+    }
+    .timer-device-slider-btn {
+      background-image: url("images/slider-button.png");
+      position: absolute;
+      left: 52px;
+      top: -4px;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+    .timer-device-slider-progress {
+      background-color: red;
+      position: absolute;
+      left: 52px;
+      top: -4px;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+    .screen-text {
+      font-size: 20px;
+      font-family: "DS-Digital";
+      color: #def5f6;
+      /*color: rgb(250, 255, 250);*/
+      font-weight: bold;
+      line-height: 1.2;
+      text-align: right;
+      -moz-transform: matrix( 2.13353433128943,0,0,2.06082289803219,0,0);
+      -webkit-transform: matrix( 2.13353433128943,0,0,2.06082289803219,0,0);
+      -ms-transform: matrix( 2.13353433128943,0,0,2.06082289803219,0,0);
+      position: absolute;      
+      text-shadow: 0 0 10px #8ddce0;
+    }
+    .numbers {
+      right: 57px;
+      top: 22px;
+    }
+    .unit-label {
+      font-size: 9px;
+      right: 17px;
+      top: 37px;
+    }
   </style>
   <script type="text/javascript"></script>
 </head>
 <body>
   <div id="timer">
     <div class="timer-device">
-      <div class="timer-device-screen"></div>
+      <div class="timer-device-screen">
+        <div class="timer-device-screen-clock"></div>
+        <div class="timer-device-screen-digits screen-text numbers">8888</div>
+        <div class="timer-device-screen-units screen-text unit-label">min</div>
+      </div>
       <div class="timer-device-toggle">
         <div class="timer-device-toggle-mins">min</div>
-        <div class="timer-device-toggle-btn"></div>
+        <div class="timer-device-toggle-btnSlider">
+          <div class="timer-device-toggle-btn"></div>
+        </div>
         <div class="timer-device-toggle-hrs">hrs</div>
       </div>
       <div class="timer-device-power">
@@ -120,6 +196,9 @@
       <div class="timer-device-updwn-btns">
         <div class="timer-device-updwn-btns-up"></div>
         <div class="timer-device-updwn-btns-down"></div>
+      </div>
+      <div class="timer-device-slider">
+        <div class="timer-device-slider-btn"></div>
       </div>
     </div>
   </div>
