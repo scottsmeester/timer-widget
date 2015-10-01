@@ -1,3 +1,10 @@
+.timer-device-screen, .timer-device-screen-clock, .timer-device-toggle-mins,
+.timer-device-toggle-hrs, .timer-device-toggle-btnSlider, .timer-device-toggle-btn,
+.timer-device-power, .timer-device-power-txt, .timer-device-updwn-btns,
+.timer-device-updwn-btns-up, .timer-device-updwn-btns-down, .timer-device-slider,
+.timer-device-slider-btn, .timer-device-slider-progress, .screen-text {
+    position: absolute;
+}
 .timer-device {
   background-image: url("../images/device.png");
   position: relative;
@@ -8,4 +15,145 @@
   z-index: 3;
   margin-left: auto;
   margin-right: auto;
+  z-index: 1;
+}
+.timer-device-screen {
+  background-image: url("../images/screen.png");
+  left: 31px;
+  top: 31px;
+  width: 191px;
+  height: 64px;
+}
+.timer-device-screen-clock {
+  background-image: url("../images/clock.png");
+  left: -1px;
+  top: 4px;
+  width: 57px;
+  height: 57px;
+}
+.timer-device-toggle {
+  font-size: 8px;
+  font-family: "Open Sans";
+  color: rgb(180, 180, 181);
+  text-transform: uppercase;
+  line-height: 1.625;
+  text-align: left;
+}
+.timer-device-toggle-mins {
+  left: 31px;
+  top: 110px;
+}
+.timer-device-toggle-hrs {
+  left: 86px;
+  top: 110px;
+}
+.timer-device-toggle-btnSlider {
+  background-image: url("../images/toggle.png");
+  left: 52px;
+  top: 109px;
+  width: 29px;
+  height: 16px;
+  cursor: pointer;
+}
+.timer-device-toggle-btn {
+  background-image: url("../images/slider-button.png");
+  left: 1px;
+  top: 1px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+.timer-device-power {
+  background-image: url("../images/power-btn-off.png");
+  left: 235px;
+  top: 66px;
+  width: 53px;
+  height: 28px;
+  cursor: pointer;
+  z-index: -1;
+}
+.timer-device-power.on {
+  background-image: url("../images/power-btn-on.png");
+}
+.timer-device-power-txt {
+  font-size: 8px;
+  font-family: "Open Sans";
+  color: rgb(214, 214, 214);
+  line-height: 3;
+  text-align: left;
+  text-transform: uppercase;
+  left: 26px;
+  top: 3px;
+}
+.timer-device-updwn-btns {
+  background-image: url("../images/up-dwn-btns-background.png");
+  left: 235px;
+  top: 31px;
+  width: 53px;
+  height: 28px;
+  z-index: 33;
+}
+.timer-device-updwn-btns-up {
+  background-image: url("../images/btn-up.png");
+  left: 3px;
+  top: 3px;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+.timer-device-updwn-btns-down {
+  background-image: url("../images/btn-down.png");
+  left: 28px;
+  top: 3px;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+.timer-device-slider {
+  background-image: url("../images/slider.png");
+  left: 120px;
+  top: 111px;
+  width: 167px;
+  height: 17px;
+}
+.timer-device-slider-btn {
+  background-image: url("../images/slider-button.png");
+  left: 52px;
+  top: -4px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+.timer-device-slider-progress {
+  background-color: red;
+  left: 52px;
+  top: -4px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+.screen-text {
+  font-size: 20px;
+  font-family: "DS-Digital";
+  color: #def5f6;
+  /*color: rgb(250, 255, 250);*/
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: right;
+  -moz-transform: matrix( 2.13353433128943,0,0,2.06082289803219,0,0);
+  -webkit-transform: matrix( 2.13353433128943,0,0,2.06082289803219,0,0);
+  -ms-transform: matrix( 2.13353433128943,0,0,2.06082289803219,0,0);      
+  text-shadow: 0 0 10px #8ddce0;
+}
+.numbers {
+  right: 64px;
+  top: 22px;
+}
+.unit-label {
+  font-size: 9px;
+  right: 20px;
+  top: 37px;
+}
+.timer-device-screen-digits {
+    width: 40px;
 }

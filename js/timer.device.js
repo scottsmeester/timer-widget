@@ -6,10 +6,31 @@ timer.device = (function() {
     //-------- BEGIN MODULE SCOPE VARIABLES ----------
     var 
         configMap = {
-            main_html : String()
-            + '<div class="timer-device">'
-                + '<div class="timer-device-screen"></div>'
-            + '</div>'
+            main_html : String() +
+            '<div class="timer-device">' +
+              '<div class="timer-device-screen">' +
+                '<div class="timer-device-screen-clock"></div>' +
+                '<div class="timer-device-screen-digits screen-text numbers">8888</div>' +
+                '<div class="timer-device-screen-units screen-text unit-label">min</div>' +
+              '</div>' +
+              '<div class="timer-device-toggle">' +
+                '<div class="timer-device-toggle-mins">min</div>' +
+                '<div class="timer-device-toggle-btnSlider">' +
+                  '<div class="timer-device-toggle-btn"></div>' +
+                '</div>' +
+                '<div class="timer-device-toggle-hrs">hrs</div>' +
+              '</div>' +
+              '<div class="timer-device-power">' +
+                '<div class="timer-device-power-txt">pwr</div>' +
+              '</div>' +
+              '<div class="timer-device-updwn-btns">' +
+                '<div class="timer-device-updwn-btns-up"></div>' +
+                '<div class="timer-device-updwn-btns-down"></div>' +
+              '</div>' +
+              '<div class="timer-device-slider">' +
+                '<div class="timer-device-slider-btn"></div>' +
+              '</div>' +
+            '</div>'
         },
         stateMap = { $container: null },
         jqueryMap = {},
