@@ -34,7 +34,7 @@ timer.device = (function() {
         },
         stateMap = { 
             $container: null,
-            is_device_off: false
+            is_device_off: true
             },
         jqueryMap = {},
         setJqueryMap, togglePower, onClickPower, initModule;
@@ -49,10 +49,9 @@ timer.device = (function() {
         jqueryMap = { 
             $container : $container,
             $power : $container.find('.timer-device-power'),
-            $screen : $container.find('timer-device-screen')
-            // $clock: $container.find('.timer-device-screen-clock'),
-            // $digits: $container.find('.timer-device-screen-digits'),
-            // $units: $container.find('.timer-device-screen-units')
+            $clock: $container.find('.timer-device-screen-clock'),
+            $digits: $container.find('.timer-device-screen-digits'),
+            $units: $container.find('.timer-device-screen-units')
         };
     };
     // Begin DOM method /togglePower/
@@ -63,9 +62,9 @@ timer.device = (function() {
     // Returns   : boolean
     //   * true  - turn-on animation activated
     //   * false - turn-on animation not activated
-    // State     : sets stateMap.is_chat_retracted
-    //   * true  - slider is retracted
-    //   * false - slider is extended
+    // State     : sets stateMap.is_device_off
+    //   * true  - device is off
+    //   * false - device is on
     //
     togglePower = function( turn_on ) {
         var 
@@ -73,7 +72,7 @@ timer.device = (function() {
             is_off = jqueryMap.$power.hasClass('off'),
             isTurningOn = ! is_on && ! is_off;
 
-        // avoiding race condition
+        // avoiding race condition - it has to be on or off
         if (isTurningOn) {
             return false;
         }
@@ -81,12 +80,16 @@ timer.device = (function() {
         // begin turn on device
         if (turn_on) {
             jqueryMap.$power.addClass('on').removeClass('off');
-            jqueryMap.$screen.children().css('display', 'block');
+            jqueryMap.$clock.css('display', 'block');
+            jqueryMap.$digits.css('display', 'block');
+            jqueryMap.$units.css('display', 'block');
             stateMap.is_device_off = false;
         }
         else {
             jqueryMap.$power.addClass('off').removeClass('on');
-            jqueryMap.$screen.children().css('display', 'block');
+            jqueryMap.$clock.css('display', 'none');
+            jqueryMap.$digits.css('display', 'none');
+            jqueryMap.$units.css('display', 'none');
             stateMap.is_device_off = true;
         }
         // end turn on

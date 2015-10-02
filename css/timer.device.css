@@ -143,7 +143,11 @@
   -webkit-transform: matrix( 2.13353433128943,0,0,2.06082289803219,0,0);
   -ms-transform: matrix( 2.13353433128943,0,0,2.06082289803219,0,0);      
   text-shadow: 0 0 10px #8ddce0;
-  display: none;
+}
+.timer-device-screen-clock,
+.timer-device-screen-digits,
+.timer-device-screen-units {
+    display: none;
 }
 .numbers {
   right: 64px;
