@@ -20,7 +20,7 @@ timer.device = (function() {
                 '</div>' +
                 '<div class="timer-device-toggle-hrs">hrs</div>' +
               '</div>' +
-              '<div class="timer-device-power">' +
+              '<div class="timer-device-power off">' +
                 '<div class="timer-device-power-txt">pwr</div>' +
               '</div>' +
               '<div class="timer-device-updwn-btns">' +
@@ -32,9 +32,12 @@ timer.device = (function() {
               '</div>' +
             '</div>'
         },
-        stateMap = { $container: null },
+        stateMap = { 
+            $container: null,
+            is_device_off: false
+            },
         jqueryMap = {},
-        setJqueryMap, initModule;
+        setJqueryMap, togglePower, onClickPower, initModule;
     //---------------- END MODULE SCOPE VARIABLES ----------
     //-------------------- BEGIN UTILITY METHODS -----------------
     // (utility methods for functions that don't interact with DOM)
@@ -43,18 +46,73 @@ timer.device = (function() {
     // Begin DOM method /setjQueryMap/
     setJqueryMap = function() {
         var $container = stateMap.$container;
-        jqueryMap = { $container : $container };
+        jqueryMap = { 
+            $container : $container,
+            $power : $container.find('.timer-device-power'),
+            $screen : $container.find('timer-device-screen')
+            // $clock: $container.find('.timer-device-screen-clock'),
+            // $digits: $container.find('.timer-device-screen-digits'),
+            // $units: $container.find('.timer-device-screen-units')
+        };
+    };
+    // Begin DOM method /togglePower/
+    // Purpose   : turns the device on or off
+    // Arguments :
+    //   * turn_on - if true, turns device on; if false turns off
+    //   * callback  - optional function to execute at end of animation
+    // Returns   : boolean
+    //   * true  - turn-on animation activated
+    //   * false - turn-on animation not activated
+    // State     : sets stateMap.is_chat_retracted
+    //   * true  - slider is retracted
+    //   * false - slider is extended
+    //
+    togglePower = function( turn_on ) {
+        var 
+            is_on = jqueryMap.$power.hasClass('on'),
+            is_off = jqueryMap.$power.hasClass('off'),
+            isTurningOn = ! is_on && ! is_off;
+
+        // avoiding race condition
+        if (isTurningOn) {
+            return false;
+        }
+
+        // begin turn on device
+        if (turn_on) {
+            jqueryMap.$power.addClass('on').removeClass('off');
+            jqueryMap.$screen.children().css('display', 'block');
+            stateMap.is_device_off = false;
+        }
+        else {
+            jqueryMap.$power.addClass('off').removeClass('on');
+            jqueryMap.$screen.children().css('display', 'block');
+            stateMap.is_device_off = true;
+        }
+        // end turn on
+
+        return true;
+
     };
     // End DOM method /setJqueryMap/
     //--------------------- END DOM METHODS --------------------
     //------------------- BEGIN EVENT HANDLERS -------------------
+    onClickPower = function( event ) {
+        togglePower(stateMap.is_device_off);
+        return false;
+    }
     //-------------------- END EVENT HANDLERS --------------------
     //------------------- BEGIN PUBLIC METHODS -------------------
     // Begin Public method /initModule/
     initModule = function ($container) {
+        // load HTML and map jQuery collections
         stateMap.$container = $container;
         $container.html(configMap.main_html)
         setJqueryMap();
+
+        // intialize the power button and bind click handler
+        stateMap.is_device_off = true;
+        jqueryMap.$power.click(onClickPower);
     };
     // End PUBLIC method /initModule/
     return {initModule:initModule};

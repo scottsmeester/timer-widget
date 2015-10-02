@@ -2,7 +2,10 @@ General:
  ☐ stub out all the modules
 
 Power button:
-
+ ☐ Get Power on and off
+   ☐ Create a single method to turn device on or off
+   ☐ On: Get numbers to run through and blink 8888 before being 'on'
+   ☐ Off: Get 8888 to blink and turn 'off'
 
 Slider:
 

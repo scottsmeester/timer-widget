@@ -70,7 +70,6 @@
   width: 53px;
   height: 28px;
   cursor: pointer;
-  z-index: -1;
 }
 .timer-device-power.on {
   background-image: url("../images/power-btn-on.png");
@@ -144,6 +143,7 @@
   -webkit-transform: matrix( 2.13353433128943,0,0,2.06082289803219,0,0);
   -ms-transform: matrix( 2.13353433128943,0,0,2.06082289803219,0,0);      
   text-shadow: 0 0 10px #8ddce0;
+  display: none;
 }
 .numbers {
   right: 64px;
