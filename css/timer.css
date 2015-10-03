@@ -34,7 +34,15 @@
 /** Begin timer nametimerce selectors */
   #timer {
     width: 100%;
-    z-index: 7;
+    z-index: 7;background-image: url("../images/device.png");
+    position: relative;
+    left: 40px;
+    top: 74px;
+    width: 319px;
+    height: 159px;
+    z-index: 3;
+    margin-left: auto;
+    margin-right: auto;
   }
 /** End timer namespace selectors */
 
@@ -45,5 +53,13 @@
     float      : none   !important;
     visibility : hidden !important;
     clear      : both   !important;
+  }
+  .noselect {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
   }
 /** End utility selectors */

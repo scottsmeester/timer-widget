@@ -1,0 +1,77 @@
+/*
+* timer.power.css
+* power button styles
+*/
+.timer-power, 
+.timer-power-button,
+.timer-power-txt,
+.timer-screen,
+.timer-screen-clock,
+.screen-text
+ {
+    position: absolute;
+}
+.timer-power-button {
+  background-image: url("../images/power-btn-off.png");
+  left: 235px;
+  top: 66px;
+  width: 53px;
+  height: 28px;
+  cursor: pointer;
+}
+.timer-power-button.on {
+  background-image: url("../images/power-btn-on.png");
+}
+.timer-power-txt {
+  font-size: 8px;
+  font-family: "Open Sans";
+  color: rgb(214, 214, 214);
+  line-height: 3;
+  text-align: left;
+  text-transform: uppercase;
+  left: 26px;
+  top: 3px;
+}
+.timer-screen {
+  background-image: url("../images/screen.png");
+  left: 31px;
+  top: 31px;
+  width: 191px;
+  height: 64px;
+}
+.timer-screen-clock {
+  background-image: url("../images/clock.png");
+  left: -1px;
+  top: 4px;
+  width: 57px;
+  height: 57px;
+}
+.screen-text {
+  font-size: 20px;
+  font-family: "DS-Digital";
+  color: #def5f6;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: right;
+  -moz-transform: matrix( 2.13353433128943,0,0,2.06082289803219,0,0);
+  -webkit-transform: matrix( 2.13353433128943,0,0,2.06082289803219,0,0);
+  -ms-transform: matrix( 2.13353433128943,0,0,2.06082289803219,0,0);      
+  text-shadow: 0 0 10px #8ddce0;
+}
+.timer-screen-clock,
+.timer-screen-digits,
+.timer-screen-units {
+    display: none;
+}
+.numbers {
+  right: 64px;
+  top: 22px;
+}
+.unit-label {
+  font-size: 9px;
+  right: 20px;
+  top: 37px;
+}
+.timer-device-screen-digits {
+    width: 40px;
+}

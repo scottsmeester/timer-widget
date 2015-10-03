@@ -8,24 +8,16 @@ timer.device = (function() {
         configMap = {
             main_html : String() +
             '<div class="timer-device">' +
-              '<div class="timer-device-screen">' +
-                '<div class="timer-device-screen-clock"></div>' +
-                '<div class="timer-device-screen-digits screen-text numbers">8888</div>' +
-                '<div class="timer-device-screen-units screen-text unit-label">min</div>' +
-              '</div>' +
               '<div class="timer-device-toggle">' +
-                '<div class="timer-device-toggle-mins">min</div>' +
+                '<div class="timer-device-toggle-mins noselect">min</div>' +
                 '<div class="timer-device-toggle-btnSlider">' +
                   '<div class="timer-device-toggle-btn"></div>' +
                 '</div>' +
-                '<div class="timer-device-toggle-hrs">hrs</div>' +
+                '<div class="timer-device-toggle-hrs noselect">hrs</div>' +
               '</div>' +
-              '<div class="timer-device-power off">' +
-                '<div class="timer-device-power-txt">pwr</div>' +
-              '</div>' +
-              '<div class="timer-device-updwn-btns">' +
-                '<div class="timer-device-updwn-btns-up"></div>' +
-                '<div class="timer-device-updwn-btns-down"></div>' +
+              '<div class="timer-device-updwn">' +
+                '<div class="timer-device-updwn-up"></div>' +
+                '<div class="timer-device-updwn-down"></div>' +
               '</div>' +
               '<div class="timer-device-slider">' +
                 '<div class="timer-device-slider-btn"></div>' +
@@ -33,11 +25,10 @@ timer.device = (function() {
             '</div>'
         },
         stateMap = { 
-            $container: null,
-            is_device_off: true
+            $container: undefined
             },
         jqueryMap = {},
-        setJqueryMap, togglePower, onClickPower, initModule;
+        setJqueryMap, initModule;
     //---------------- END MODULE SCOPE VARIABLES ----------
     //-------------------- BEGIN UTILITY METHODS -----------------
     // (utility methods for functions that don't interact with DOM)
@@ -47,63 +38,16 @@ timer.device = (function() {
     setJqueryMap = function() {
         var $container = stateMap.$container;
         jqueryMap = { 
-            $container : $container,
-            $power : $container.find('.timer-device-power'),
-            $clock: $container.find('.timer-device-screen-clock'),
-            $digits: $container.find('.timer-device-screen-digits'),
-            $units: $container.find('.timer-device-screen-units')
+            $container : $container
+            // $power : $container.find('.timer-device-power'),
+            // $clock: $container.find('.timer-device-screen-clock'),
+            // $digits: $container.find('.timer-device-screen-digits'),
+            // $units: $container.find('.timer-device-screen-units')
         };
-    };
-    // Begin DOM method /togglePower/
-    // Purpose   : turns the device on or off
-    // Arguments :
-    //   * turn_on - if true, turns device on; if false turns off
-    //   * callback  - optional function to execute at end of animation
-    // Returns   : boolean
-    //   * true  - turn-on animation activated
-    //   * false - turn-on animation not activated
-    // State     : sets stateMap.is_device_off
-    //   * true  - device is off
-    //   * false - device is on
-    //
-    togglePower = function( turn_on ) {
-        var 
-            is_on = jqueryMap.$power.hasClass('on'),
-            is_off = jqueryMap.$power.hasClass('off'),
-            isTurningOn = ! is_on && ! is_off;
-
-        // avoiding race condition - it has to be on or off
-        if (isTurningOn) {
-            return false;
-        }
-
-        // begin turn on device
-        if (turn_on) {
-            jqueryMap.$power.addClass('on').removeClass('off');
-            jqueryMap.$clock.css('display', 'block');
-            jqueryMap.$digits.css('display', 'block');
-            jqueryMap.$units.css('display', 'block');
-            stateMap.is_device_off = false;
-        }
-        else {
-            jqueryMap.$power.addClass('off').removeClass('on');
-            jqueryMap.$clock.css('display', 'none');
-            jqueryMap.$digits.css('display', 'none');
-            jqueryMap.$units.css('display', 'none');
-            stateMap.is_device_off = true;
-        }
-        // end turn on
-
-        return true;
-
     };
     // End DOM method /setJqueryMap/
     //--------------------- END DOM METHODS --------------------
     //------------------- BEGIN EVENT HANDLERS -------------------
-    onClickPower = function( event ) {
-        togglePower(stateMap.is_device_off);
-        return false;
-    }
     //-------------------- END EVENT HANDLERS --------------------
     //------------------- BEGIN PUBLIC METHODS -------------------
     // Begin Public method /initModule/
@@ -113,9 +57,9 @@ timer.device = (function() {
         $container.html(configMap.main_html)
         setJqueryMap();
 
-        // intialize the power button and bind click handler
-        stateMap.is_device_off = true;
-        jqueryMap.$power.click(onClickPower);
+        // configure and initialize feature modules
+        timer.power.configModule( {} );
+        timer.power.initModule( jqueryMap.$container );
     };
     // End PUBLIC method /initModule/
     return {initModule:initModule};

@@ -1,23 +1,11 @@
 .timer-device-screen, .timer-device-screen-clock, .timer-device-toggle-mins,
 .timer-device-toggle-hrs, .timer-device-toggle-btnSlider, .timer-device-toggle-btn,
-.timer-device-power, .timer-device-power-txt, .timer-device-updwn-btns,
-.timer-device-updwn-btns-up, .timer-device-updwn-btns-down, .timer-device-slider,
+.timer-device-updwn,
+.timer-device-updwn-up, .timer-device-updwn-down, .timer-device-slider,
 .timer-device-slider-btn, .timer-device-slider-progress, .screen-text {
     position: absolute;
 }
-.timer-device {
-  background-image: url("../images/device.png");
-  position: relative;
-  left: 40px;
-  top: 74px;
-  width: 319px;
-  height: 159px;
-  z-index: 3;
-  margin-left: auto;
-  margin-right: auto;
-  z-index: 1;
-}
-.timer-device-screen {
+/*.timer-device-screen {
   background-image: url("../images/screen.png");
   left: 31px;
   top: 31px;
@@ -30,7 +18,7 @@
   top: 4px;
   width: 57px;
   height: 57px;
-}
+}*/
 .timer-device-toggle {
   font-size: 8px;
   font-family: "Open Sans";
@@ -42,10 +30,12 @@
 .timer-device-toggle-mins {
   left: 31px;
   top: 110px;
+  cursor: pointer;
 }
 .timer-device-toggle-hrs {
   left: 86px;
   top: 110px;
+  cursor: pointer;
 }
 .timer-device-toggle-btnSlider {
   background-image: url("../images/toggle.png");
@@ -63,28 +53,7 @@
   height: 16px;
   cursor: pointer;
 }
-.timer-device-power {
-  background-image: url("../images/power-btn-off.png");
-  left: 235px;
-  top: 66px;
-  width: 53px;
-  height: 28px;
-  cursor: pointer;
-}
-.timer-device-power.on {
-  background-image: url("../images/power-btn-on.png");
-}
-.timer-device-power-txt {
-  font-size: 8px;
-  font-family: "Open Sans";
-  color: rgb(214, 214, 214);
-  line-height: 3;
-  text-align: left;
-  text-transform: uppercase;
-  left: 26px;
-  top: 3px;
-}
-.timer-device-updwn-btns {
+.timer-device-updwn {
   background-image: url("../images/up-dwn-btns-background.png");
   left: 235px;
   top: 31px;
@@ -92,7 +61,7 @@
   height: 28px;
   z-index: 33;
 }
-.timer-device-updwn-btns-up {
+.timer-device-updwn-up {
   background-image: url("../images/btn-up.png");
   left: 3px;
   top: 3px;
@@ -100,7 +69,7 @@
   height: 22px;
   cursor: pointer;
 }
-.timer-device-updwn-btns-down {
+.timer-device-updwn-down {
   background-image: url("../images/btn-down.png");
   left: 28px;
   top: 3px;
@@ -131,11 +100,10 @@
   height: 16px;
   cursor: pointer;
 }
-.screen-text {
+/*.screen-text {
   font-size: 20px;
   font-family: "DS-Digital";
   color: #def5f6;
-  /*color: rgb(250, 255, 250);*/
   font-weight: bold;
   line-height: 1.2;
   text-align: right;
@@ -160,4 +128,4 @@
 }
 .timer-device-screen-digits {
     width: 40px;
-}
+}*/
