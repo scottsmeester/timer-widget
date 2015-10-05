@@ -14,14 +14,14 @@ timer.device = (function() {
                 '<div class="timer-device-screen-units screen-text unit-label">min</div>' +
               '</div>' +
               '<div class="timer-device-toggle">' +
-                '<div class="timer-device-toggle-mins">min</div>' +
+                '<div class="timer-device-toggle-mins noselect">min</div>' +
                 '<div class="timer-device-toggle-btnSlider">' +
                   '<div class="timer-device-toggle-btn"></div>' +
                 '</div>' +
-                '<div class="timer-device-toggle-hrs">hrs</div>' +
+                '<div class="timer-device-toggle-hrs noselect">hrs</div>' +
               '</div>' +
               '<div class="timer-device-power off">' +
-                '<div class="timer-device-power-txt">pwr</div>' +
+                '<div class="timer-device-power-txt noselect">pwr</div>' +
               '</div>' +
               '<div class="timer-device-updwn-btns">' +
                 '<div class="timer-device-updwn-btns-up"></div>' +
