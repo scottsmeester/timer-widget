@@ -92,7 +92,7 @@ timer.device = (function() {
 
             // make digits set to zero - after 1 second (for effect)
             setTimeout(function() {
-                jqueryMap.$digits.html(stateMap.slider_val).lettering();
+                jqueryMap.$digits.html(stateMap.slider_val);
             }, blink_timeout);
 
             jqueryMap.$slider.slider('enable');
@@ -175,10 +175,7 @@ timer.device = (function() {
               range: "min",
               min: 0,
               max: 55,
-              value: stateMap.slider_val,
-              // change: function(event, iu) {
-              //   resizeDigits();
-              // }
+              value: stateMap.slider_val
             });
             return false;
         }
