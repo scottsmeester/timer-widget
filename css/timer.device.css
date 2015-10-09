@@ -174,7 +174,7 @@ span.ui-slider-handle.ui-state-default.ui-corner-all {
 .timer-device-screen-clock,
 .timer-device-screen-digits,
 .timer-device-screen-units {
-    display: none;
+  display: none;
 }
 .numbers {
   right: 64px;
@@ -186,10 +186,15 @@ span.ui-slider-handle.ui-state-default.ui-corner-all {
   top: 37px;
 }
 .timer-device-screen-digits {
-    width: 41px;
+  width: 41px;
 }
 span.hrsLbl {
-    width: 4.3px;
-    display: block;
-    float: left;
+  width: 4.3px;
+  display: block;
+  float: left;
+}
+.ui-slider-range.ui-widget-header.ui-corner-all.ui-slider-range-min {
+  background-color: #9ad3df;
+  height: 4px;
+  top: 1px;
 }
