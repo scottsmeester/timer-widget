@@ -1,14 +1,40 @@
+
+.ui-widget-content {
+  border: none;
+  background: none;
+}
+span.ui-slider-handle.ui-state-default.ui-corner-all {
+  border: none;
+  background:none;
+  background: url("../images/slider-button.png");
+  width: 16px;
+  height: 16px;
+}
+.ui-widget-header {
+  background: none;
+}
+.ui-slider-horizontal .ui-slider-handle {
+  margin-left: -.5em;
+  top: -0.25em;
+}
+.ui-state-disabled {
+  opacity: 1;
+}
+.ui-state-focus:focus { 
+  outline:none !important 
+}
+.ui-slider-handle:focus {
+  outline:none !important 
+}
+
 .timer-device-screen, .timer-device-screen-clock, .timer-device-toggle-mins,
-.timer-device-toggle-hrs, .timer-device-toggle-btnSlider, .timer-device-toggle-btn,
-.timer-device-power, .timer-device-power-txt, .timer-device-updwn-btns,
-.timer-device-updwn-btns-up, .timer-device-updwn-btns-down, .timer-device-slider,
-.timer-device-slider-btn, .timer-device-slider-progress, .screen-text {
+.timer-device-toggle-hrs, .timer-device-toggle-btnSlider, .timer-device-toggle-btn, .timer-device-power, .timer-device-power-txt, .timer-device-updwn-btns,
+.timer-device-updwn-btns-up, .timer-device-updwn-btns-down, .timer-device-slider, .timer-device-slider-btn, .timer-device-slider-progress, .screen-text {
     position: absolute;
 }
 .timer-device {
   background-image: url("../images/device.png");
   position: relative;
-  left: 40px;
   top: 74px;
   width: 319px;
   height: 159px;
@@ -57,11 +83,16 @@
 }
 .timer-device-toggle-btn {
   background-image: url("../images/slider-button.png");
-  left: 1px;
   top: 1px;
   width: 16px;
   height: 16px;
   cursor: pointer;
+}
+.timer-device-toggle-btn.mins {
+  left: 1px;
+}
+.timer-device-toggle-btn.hrs {
+  left: 11px;
 }
 .timer-device-power {
   background-image: url("../images/power-btn-off.png");
@@ -115,12 +146,7 @@
   width: 167px;
   height: 17px;
 }
-.timer-device-slider-btn {
-  background-image: url("../images/slider-button.png");
-  left: 52px;
-  top: -4px;
-  width: 16px;
-  height: 16px;
+.timer-device-slider-btn, .ui-slider .ui-slider-handle {
   cursor: pointer;
 }
 .timer-device-slider-progress {
@@ -133,6 +159,7 @@
 }
 .screen-text {
   font-size: 20px;
+  letter-spacing: px;
   font-family: "DS-Digital";
   color: #def5f6;
   /*color: rgb(250, 255, 250);*/
@@ -155,9 +182,14 @@
 }
 .unit-label {
   font-size: 9px;
-  right: 20px;
+  right: 21px;
   top: 37px;
 }
 .timer-device-screen-digits {
-    width: 40px;
+    width: 41px;
+}
+span.hrsLbl {
+    width: 4.3px;
+    display: block;
+    float: left;
 }
